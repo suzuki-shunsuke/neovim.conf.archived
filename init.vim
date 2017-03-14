@@ -9,16 +9,9 @@ set runtimepath+=/Users/shunsuke/.local/share/dein/repos/github.com/Shougo/dein.
 " Required:
 if dein#load_state('/Users/shunsuke/.local/share/dein')
   call dein#begin('/Users/shunsuke/.local/share/dein')
-
-  " Let dein manage dein
-  " Required:
-  call dein#add('/Users/shunsuke/.local/share/dein/repos/github.com/Shougo/dein.vim')
-
-  " Add or remove your plugins here:
-  call dein#add('itchyny/lightline.vim')
-  call dein#add('mattn/webapi-vim')
-  call dein#add('Shougo/denite.nvim')
-
+  let s:toml_dir = '~/.config/nvim/'
+  call dein#load_toml(s:toml_dir . 'dein.toml', {'lazy': 0})
+  call dein#load_toml(s:toml_dir . 'dein_lazy.toml', {'lazy': 1})
 
   " Required:
   call dein#end()
