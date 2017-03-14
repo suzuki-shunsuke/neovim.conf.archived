@@ -16,6 +16,8 @@ if dein#load_state('/Users/shunsuke/.local/share/dein')
 
   " Add or remove your plugins here:
   call dein#add('itchyny/lightline.vim')
+  call dein#add('mattn/webapi-vim')
+  call dein#add('Shougo/denite.nvim')
 
 
   " Required:
@@ -33,9 +35,6 @@ if dein#check_install()
 endif
 
 "End dein Scripts-------------------------
-
-
-
 
 set shiftwidth=4  " 自動インデントでずれる幅。タブキーで入力されるスペースの数
 set number  " 行番号の表示
