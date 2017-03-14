@@ -33,3 +33,12 @@ set shiftwidth=4  " 自動インデントでずれる幅。タブキーで入力
 set number  " 行番号の表示
 set ruler  " カーソルが何行目の何列目に置かれているか表示
 set undofile
+set matchpairs& matchpairs+=<:> " 対応括弧に'<'と'>'のペアを追加
+
+" unite.vim, denite.nvim のキーバインド
+nnoremap ,f :Unite file_mru
+nnoremap ,b :Unite buffer
+nnoremap ,l :Unite file
+
+" init.vimを再読み込みするコマンド
+command! R source ~/.config/nvim/init.vim
