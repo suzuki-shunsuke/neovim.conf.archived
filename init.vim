@@ -34,6 +34,10 @@ set number  " 行番号の表示
 set ruler  " カーソルが何行目の何列目に置かれているか表示
 set undofile
 set matchpairs& matchpairs+=<:> " 対応括弧に'<'と'>'のペアを追加
+set hidden " bufferを切り替える時に編集中ファイルを保存しなくても良くする
+
+" マウスで選択時にモードが切り替わるのを無効にする
+set mouse-=a
 
 " unite.vim, denite.nvim のキーバインド
 nnoremap ,f :Unite file_mru
