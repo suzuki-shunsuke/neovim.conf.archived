@@ -1,6 +1,6 @@
-[[plugins]]
-repo  = 'stephpy/vim-yaml'
-on_ft = ['yaml']
+# [[plugins]]
+# repo  = 'stephpy/vim-yaml'
+# on_ft = ['yaml']
 
 [[plugins]]
 repo  = 'fatih/vim-go'
