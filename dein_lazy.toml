@@ -5,3 +5,15 @@
 [[plugins]]
 repo  = 'fatih/vim-go'
 on_ft = ['go']
+
+[[plugins]]
+repo  = 'mattn/emmet-vim'
+on_ft = ['html', 'css']
+
+[[plugins]]
+repo  = 'hail2u/vim-css3-syntax'
+on_ft = ['css']
+
+[[plugins]]
+repo  = 'pangloss/vim-javascript'
+on_ft = ['javascript']
