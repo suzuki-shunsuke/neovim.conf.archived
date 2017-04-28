@@ -4,11 +4,11 @@ if &compatible
 endif
 
 " Required:
-set runtimepath+=/Users/shunsuke/.local/share/dein/repos/github.com/Shougo/dein.vim
+set runtimepath+=~/.local/share/dein/repos/github.com/Shougo/dein.vim
 
 " Required:
-if dein#load_state('/Users/shunsuke/.local/share/dein')
-  call dein#begin('/Users/shunsuke/.local/share/dein')
+if dein#load_state('~/.local/share/dein')
+  call dein#begin('~/.local/share/dein')
   let s:toml_dir = '~/.config/nvim/'
   call dein#load_toml(s:toml_dir . 'dein.toml', {'lazy': 0})
   call dein#load_toml(s:toml_dir . 'dein_lazy.toml', {'lazy': 1})
