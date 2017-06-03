@@ -44,10 +44,17 @@ set hidden  " bufferを切り替える時に編集中ファイルを保存しな
 " マウスで選択時にモードが切り替わるのを無効にする
 set mouse-=a
 
-" unite.vim, denite.nvim のキーバインド
+" unite.vim のキーバインド
+" denite.nvimではなく、unite.vimを使う
+" denite.nvimはfile, directory_mru非対応
+" directory_mru は対応する予定もないらしい
+" https://github.com/Shougo/neomru.vim/issues/36
 nnoremap ,f :Unite file_mru
 nnoremap ,b :Unite buffer
 nnoremap ,l :Unite file
+nnoremap ,d :Unite directory_mru -default-action=lcd
+
+" call unite#custom#default_action('directory_mru' , 'cd')
 
 " init.vimを再読み込みするコマンド
 command! R source ~/.config/nvim/init.vim
@@ -63,6 +70,40 @@ let g:deoplete#enable_at_startup = 1
 inoremap <silent><expr><Up>     pumvisible() ? "\<C-p>"  : "\<Up>"
 inoremap <silent><expr><Down>   pumvisible() ? "\<C-n>"  : "\<Down>"
 inoremap <silent><expr><Tab>    pumvisible() ? "\<C-n>".deoplete#mappings#close_popup() : "\<Tab>"
+
+" neoterm
+let g:neoterm_position = 'horizontal'
+let g:neoterm_automap_keys = ',tt'
+
+tnoremap <silent> <ESC> <C-\><C-n>
+
+nnoremap <silent> <f10> :TREPLSendFile<cr>
+nnoremap <silent> <f9> :TREPLSendLine<cr>
+vnoremap <silent> <f9> :TREPLSendSelection<cr>
+
+" Useful maps
+nnoremap <silent> ,to :Topen<cr>
+nnoremap <silent> ,tt :Ttoggle<cr>
+" hide/close terminal
+nnoremap <silent> ,th :call neoterm#close()<cr>
+" clear terminal
+nnoremap <silent> ,tl :call neoterm#clear()<cr>
+" kills the current job (send a <c-c>)
+nnoremap <silent> ,tc :call neoterm#kill()<cr>
+
+" Rails commands
+" command! Troutes :T rake routes
+" command! -nargs=+ Troute :T rake routes | grep <args>
+" command! Tmigrate :T rake db:migrate
+
+" Git commands
+command! -nargs=+ Tg :T git <args>
+
+" Shift + 矢印でウィンドウサイズを変更
+nnoremap <S-Left>  <C-w>><CR>
+nnoremap <S-Right> <C-w><<CR>
+nnoremap <S-Up>    <C-w>-<CR>
+nnoremap <S-Down>  <C-w>+<CR>
 
 " jedi-vim
 " let g:jedi#completions_command = "<Tab>"  " 補完キー

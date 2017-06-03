@@ -22,5 +22,8 @@ repo = 'Shougo/unite.vim'
 [[plugins]]
 repo = 'tpope/vim-surround'
 
+[[plugins]]
+repo = 'kassio/neoterm'
+
 # [[plugins]]
 # repo = 'Shougo/denite.nvim'
