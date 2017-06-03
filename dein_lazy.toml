@@ -6,6 +6,14 @@
 repo  = 'fatih/vim-go'
 on_ft = ['go']
 
+# [[plugins]]
+# repo  = 'jmcantrell/vim-virtualenv'
+# on_ft = ['python']
+
+[[plugins]]
+repo  = 'zchee/deoplete-jedi'
+on_ft = ['python']
+
 [[plugins]]
 repo  = 'mattn/emmet-vim'
 on_ft = ['html', 'css']
