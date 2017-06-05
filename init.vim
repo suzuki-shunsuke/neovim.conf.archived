@@ -3,8 +3,19 @@ if &compatible
   set nocompatible               " Be iMproved
 endif
 
+augroup MyAutoCmd
+    " 初期化
+    " リロードした際に２重でコマンドが定義されないようにする
+    autocmd!
+    " terminal モードのバッファに入ったら自動でterminalモードになるようにする
+    au BufEnter term://* startinsert
+augroup END
+
 " pyenv support
-" let g:python3_host_prog = $PYENV_ROOT . '/shims/python3'
+" pyenv virtualenv で neovimというenvを作っている前提
+" $ pyenv virtualenv 3.6.1 neovim
+" $ pyenv activate neovim
+" $ pip install neovim jedi
 let g:python3_host_prog = $PYENV_ROOT . '/versions/neovim/bin/python'
 
 
@@ -54,8 +65,6 @@ nnoremap ,b :Unite buffer
 nnoremap ,l :Unite file
 nnoremap ,d :Unite directory_mru -default-action=lcd
 
-" call unite#custom#default_action('directory_mru' , 'cd')
-
 " init.vimを再読み込みするコマンド
 command! R source ~/.config/nvim/init.vim
 
@@ -75,7 +84,16 @@ inoremap <silent><expr><Tab>    pumvisible() ? "\<C-n>".deoplete#mappings#close_
 let g:neoterm_position = 'horizontal'
 let g:neoterm_automap_keys = ',tt'
 
-tnoremap <silent> <ESC> <C-\><C-n>
+" Ctrl + O で TerminalモードからNomalモードに切り替える
+" 最初 esc を割り当てていたが、
+" Zsh Line Editorのモード切替とバッティングするため変更
+tnoremap <silent> <C-o> <C-\><C-n>
+" normalモードに切り替えなくてもterminalモードのまま
+" 他のウィンドウに移動できるようにする
+tnoremap <C-w>h <C-\><C-N><C-w>h
+tnoremap <C-w>j <C-\><C-N><C-w>j
+tnoremap <C-w>k <C-\><C-N><C-w>k
+tnoremap <C-w>l <C-\><C-N><C-w>l
 
 nnoremap <silent> <f10> :TREPLSendFile<cr>
 nnoremap <silent> <f9> :TREPLSendLine<cr>
