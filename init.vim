@@ -55,23 +55,11 @@ set hidden  " bufferを切り替える時に編集中ファイルを保存しな
 " マウスで選択時にモードが切り替わるのを無効にする
 set mouse-=a
 
-" unite.vim のキーバインド
-" nnoremap ,f :Unite file_mru
-" nnoremap ,b :Unite buffer
-" nnoremap ,l :Unite file
-" nnoremap ,d :Unite directory_mru -default-action=lcd
-
 nnoremap ,f :Denite -mode=normal file_mru
 nnoremap ,b :Denite -mode=normal buffer
 nnoremap ,l :Denite -mode=normal file
 nnoremap ,d :Denite -mode=normal directory_mru
-
-" function! TBcd(path)
-"   execute 'cd' fnameescape(a:path)
-"   execute 'T' 'cd' getcwd()
-"   execute 'T' 'cd' fnameescape(a:path)
-"   startinsert
-" endfunction
+nnoremap ,g :Denite -mode=normal ghq
 
 " init.vimを再読み込みするコマンド
 command! R source ~/.config/nvim/init.vim
@@ -150,4 +138,4 @@ nnoremap <S-Down>  <C-w>+<CR>
 
 " let g:neocomplete#force_omni_input_patterns.python = '\h\w*\|[^. \t]\.\w*'
 
-set runtimepath+=~/.config/nvim/nvim-term
+set runtimepath+=~/.config/nvim/neoterm-cd

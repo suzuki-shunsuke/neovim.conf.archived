@@ -30,3 +30,6 @@ repo = 'Shougo/denite.nvim'
 
 [[plugins]]
 repo = 'suzuki-shunsuke/denite-directory_mru-source'
+
+[[plugins]]
+repo = 'Jagua/vim-denite-ghq'
