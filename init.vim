@@ -56,14 +56,22 @@ set hidden  " bufferを切り替える時に編集中ファイルを保存しな
 set mouse-=a
 
 " unite.vim のキーバインド
-" denite.nvimではなく、unite.vimを使う
-" denite.nvimはfile, directory_mru非対応
-" directory_mru は対応する予定もないらしい
-" https://github.com/Shougo/neomru.vim/issues/36
-nnoremap ,f :Unite file_mru
-nnoremap ,b :Unite buffer
-nnoremap ,l :Unite file
-nnoremap ,d :Unite directory_mru -default-action=lcd
+" nnoremap ,f :Unite file_mru
+" nnoremap ,b :Unite buffer
+" nnoremap ,l :Unite file
+" nnoremap ,d :Unite directory_mru -default-action=lcd
+
+nnoremap ,f :Denite -mode=normal file_mru
+nnoremap ,b :Denite -mode=normal buffer
+nnoremap ,l :Denite -mode=normal file
+nnoremap ,d :Denite -mode=normal directory_mru
+
+" function! TBcd(path)
+"   execute 'cd' fnameescape(a:path)
+"   execute 'T' 'cd' getcwd()
+"   execute 'T' 'cd' fnameescape(a:path)
+"   startinsert
+" endfunction
 
 " init.vimを再読み込みするコマンド
 command! R source ~/.config/nvim/init.vim
@@ -98,6 +106,9 @@ tnoremap <C-w>l <C-\><C-N><C-w>l
 nnoremap <silent> <f10> :TREPLSendFile<cr>
 nnoremap <silent> <f9> :TREPLSendLine<cr>
 vnoremap <silent> <f9> :TREPLSendSelection<cr>
+
+" command! -nargs=1 -complete=dir Tcd call TBcd("<args>")
+" tnoremap <C-i> <C-\><C-N> :Tcd 
 
 " Useful maps
 nnoremap <silent> ,to :Topen<cr>
@@ -136,3 +147,5 @@ nnoremap <S-Down>  <C-w>+<CR>
 " endif
 
 " let g:neocomplete#force_omni_input_patterns.python = '\h\w*\|[^. \t]\.\w*'
+
+set runtimepath+=~/.config/nvim/nvim-term

@@ -16,8 +16,8 @@ repo = 'Shougo/deoplete.nvim'
 [[plugins]]
 repo = 'Shougo/neomru.vim'
 
-[[plugins]]
-repo = 'Shougo/unite.vim'
+# [[plugins]]
+# repo = 'Shougo/unite.vim'
 
 [[plugins]]
 repo = 'tpope/vim-surround'
@@ -25,5 +25,8 @@ repo = 'tpope/vim-surround'
 [[plugins]]
 repo = 'kassio/neoterm'
 
-# [[plugins]]
-# repo = 'Shougo/denite.nvim'
+[[plugins]]
+repo = 'Shougo/denite.nvim'
+
+[[plugins]]
+repo = 'suzuki-shunsuke/denite-directory_mru-source'
