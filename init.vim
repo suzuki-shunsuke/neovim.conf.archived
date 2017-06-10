@@ -55,11 +55,11 @@ set hidden  " bufferを切り替える時に編集中ファイルを保存しな
 " マウスで選択時にモードが切り替わるのを無効にする
 set mouse-=a
 
-nnoremap ,f :Denite -mode=normal file_mru
-nnoremap ,b :Denite -mode=normal buffer
-nnoremap ,l :Denite -mode=normal file
-nnoremap ,d :Denite -mode=normal directory_mru
-nnoremap ,g :Denite -mode=normal ghq
+nnoremap ,f :Denite -mode=normal file_mru<cr><esc>
+nnoremap ,b :Denite -mode=normal buffer<cr><esc>
+nnoremap ,l :Denite -mode=normal file<cr><esc>
+nnoremap ,d :Denite -mode=normal directory_mru<cr>
+nnoremap ,g :Denite -mode=normal ghq<cr>
 
 " init.vimを再読み込みするコマンド
 command! R source ~/.config/nvim/init.vim
@@ -92,6 +92,10 @@ tnoremap <C-w>k <C-\><C-N><C-w>k
 tnoremap <C-w>l <C-\><C-N><C-w>l
 " C-zでバックグランドにする
 tnoremap <C-z> <C-\><C-N><C-z>
+tnoremap <C-f> <C-\><C-N>:Denite -mode=normal file_mru<cr><esc>
+tnoremap <C-b> <C-\><C-N>:Denite -mode=normal buffer<cr><esc>
+tnoremap <C-d> <C-\><C-N>:Denite -mode=normal directory_mru<cr>
+tnoremap <C-g> <C-\><C-N>:Denite -mode=normal ghq<cr>
 
 nnoremap <silent> <f10> :TREPLSendFile<cr>
 nnoremap <silent> <f9> :TREPLSendLine<cr>
