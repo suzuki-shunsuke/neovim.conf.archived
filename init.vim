@@ -96,6 +96,7 @@ tnoremap <C-f> <C-\><C-N>:Denite -mode=normal file_mru<cr><esc>
 tnoremap <C-b> <C-\><C-N>:Denite -mode=normal buffer<cr><esc>
 tnoremap <C-d> <C-\><C-N>:Denite -mode=normal directory_mru<cr>
 tnoremap <C-g> <C-\><C-N>:Denite -mode=normal ghq<cr>
+tnoremap <C-u> <C-\><C-N><C-b>
 
 nnoremap <silent> <f10> :TREPLSendFile<cr>
 nnoremap <silent> <f9> :TREPLSendLine<cr>
