@@ -25,3 +25,16 @@ on_ft = ['css']
 [[plugins]]
 repo  = 'pangloss/vim-javascript'
 on_ft = ['javascript']
+
+# [[plugins]]
+# repo  = 'mhartington/nvim-typescript'
+# on_ft = ['typescript']
+
+[[plugins]]
+repo  = 'leafgarland/typescript-vim'
+on_ft = ['typescript']
+
+[[plugins]]
+repo  = 'Quramy/tsuquyomi'
+on_ft = ['typescript']
+build = 'make -f make_mac.mak'
