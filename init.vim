@@ -55,11 +55,21 @@ set hidden  " bufferを切り替える時に編集中ファイルを保存しな
 " マウスで選択時にモードが切り替わるのを無効にする
 set mouse-=a
 
+" Ag command on grep source
+call denite#custom#var('grep', 'command', ['ag'])
+call denite#custom#var('grep', 'default_opts',
+		\ ['-i', '--vimgrep'])
+call denite#custom#var('grep', 'recursive_opts', [])
+call denite#custom#var('grep', 'pattern_opt', [])
+call denite#custom#var('grep', 'separator', ['--'])
+call denite#custom#var('grep', 'final_opts', [])
+
 nnoremap ,f :Denite -mode=normal file_mru<cr><esc>
 nnoremap ,b :Denite -mode=normal buffer<cr><esc>
 nnoremap ,l :Denite -mode=normal file<cr><esc>
 nnoremap ,d :Denite -mode=normal directory_mru<cr>
 nnoremap ,g :Denite -mode=normal ghq<cr>
+nnoremap ,/ :Denite -mode=normal grep<cr>
 
 " init.vimを再読み込みするコマンド
 command! R source ~/.config/nvim/init.vim
@@ -129,6 +139,9 @@ nnoremap <S-Right> <C-w><<CR>
 nnoremap <S-Up>    <C-w>-<CR>
 nnoremap <S-Down>  <C-w>+<CR>
 
+" gtags
+nnoremap <C-s> :Gtags
+
 " jedi-vim
 " let g:jedi#completions_command = "<Tab>"  " 補完キー
 " let g:jedi#popup_select_first = 0
@@ -143,4 +156,8 @@ nnoremap <S-Down>  <C-w>+<CR>
 
 " let g:neocomplete#force_omni_input_patterns.python = '\h\w*\|[^. \t]\.\w*'
 
-set runtimepath+=~/.config/nvim/neoterm-cd
+" set runtimepath+=~/.config/nvim/neoterm-cd
+
+" typescript
+" https://github.com/leafgarland/typescript-vim#indenting
+let g:typescript_indent_disable = 1
