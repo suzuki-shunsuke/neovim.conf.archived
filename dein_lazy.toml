@@ -37,10 +37,14 @@ on_ft = ['typescript']
 [[plugins]]
 repo  = 'Quramy/tsuquyomi'
 on_ft = ['typescript']
-build = 'make -f make_mac.mak'
+# build = 'make -f make_mac.mak'
 repo  = 'Shougo/deoplete-rct'
 on_ft = ['ruby']
 
 [[plugins]]
 repo  = 'vim-ruby/vim-ruby'
 on_ft = ['ruby']
+
+[[plugins]]
+repo  = 'posva/vim-vue'
+on_ft = ['vue']
