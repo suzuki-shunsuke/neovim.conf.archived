@@ -161,3 +161,7 @@ nnoremap <C-s> :Gtags
 " typescript
 " https://github.com/leafgarland/typescript-vim#indenting
 let g:typescript_indent_disable = 1
+
+" markdown
+let g:vim_markdown_folding_disabled = 1
+let g:vim_markdown_frontmatter = 1

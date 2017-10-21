@@ -34,10 +34,12 @@ on_ft = ['javascript']
 repo  = 'leafgarland/typescript-vim'
 on_ft = ['typescript']
 
-[[plugins]]
-repo  = 'Quramy/tsuquyomi'
-on_ft = ['typescript']
+# [[plugins]]
+# repo  = 'Quramy/tsuquyomi'
+# on_ft = ['typescript']
 # build = 'make -f make_mac.mak'
+
+[[plugins]]
 repo  = 'Shougo/deoplete-rct'
 on_ft = ['ruby']
 
@@ -48,3 +50,7 @@ on_ft = ['ruby']
 [[plugins]]
 repo  = 'posva/vim-vue'
 on_ft = ['vue']
+
+[[plugins]]
+repo = 'plasticboy/vim-markdown'
+on_ft = ['markdown']
