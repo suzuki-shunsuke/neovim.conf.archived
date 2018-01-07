@@ -1,18 +1,18 @@
 "dein Scripts-----------------------------
 if &compatible
-  set nocompatible               " Be iMproved
+  set nocompatible " Be iMproved
 endif
 
 augroup MyAutoCmd
-    " 初期化
-    " リロードした際に２重でコマンドが定義されないようにする
+    " initializing
+    " prevent from duplicate command definition at reloading
     autocmd!
-    " terminal モードのバッファに入ったら自動でterminalモードになるようにする
+    " when entering buffer on the terminal mode, switch to the terminal mode
     au BufEnter term://* startinsert
 augroup END
 
 " pyenv support
-" pyenv virtualenv で neovimというenvを作っている前提
+" assume that the environment 'neovim' has already been created with pyenv virtualenv
 " $ pyenv virtualenv 3.6.1 neovim
 " $ pyenv activate neovim
 " $ pip install neovim jedi
@@ -45,14 +45,14 @@ endif
 
 "End dein Scripts-------------------------
 
-" set shiftwidth=4  " 自動インデントでずれる幅。タブキーで入力されるスペースの数
-set number  " 行番号の表示
-set ruler  " カーソルが何行目の何列目に置かれているか表示
+" set shiftwidth=4
+set number
+set ruler
 set undofile
-set matchpairs& matchpairs+=<:>  " 対応括弧に'<'と'>'のペアを追加
-set hidden  " bufferを切り替える時に編集中ファイルを保存しなくても良くする
+set matchpairs& matchpairs+=<:>
+set hidden  " allow not to save the buffer before switch the buffer
 
-" マウスで選択時にモードが切り替わるのを無効にする
+" disable to switch the mode when select with the mouse
 set mouse-=a
 
 " Ag command on grep source
@@ -71,12 +71,12 @@ nnoremap ,d :Denite -mode=normal directory_mru<cr>
 nnoremap ,g :Denite -mode=normal ghq<cr>
 nnoremap ,/ :Denite -mode=normal grep<cr>
 
-" init.vimを再読み込みするコマンド
+" define the command to reload init.vim
 command! R source ~/.config/nvim/init.vim
 
-" let res = webapi#http#get("http://localhost:3000/posts/1")
-" let obj = webapi#json#decode(res["content"])
-" echo obj["title"]
+" deoplete-jedi
+" https://github.com/zchee/deoplete-jedi#options
+let g:deoplete#sources#jedi#python_path = $PYENV_ROOT . '/versions/neovim/bin/python'
 
 " Use deoplete.
 let g:deoplete#enable_at_startup = 1
@@ -90,17 +90,13 @@ inoremap <silent><expr><Tab>    pumvisible() ? "\<C-n>".deoplete#mappings#close_
 let g:neoterm_position = 'horizontal'
 let g:neoterm_automap_keys = ',tt'
 
-" Ctrl + O で TerminalモードからNomalモードに切り替える
-" 最初 esc を割り当てていたが、
-" Zsh Line Editorのモード切替とバッティングするため変更
+" Ctrl + O : switch the terminal mode to normal mode
 tnoremap <silent> <C-o> <C-\><C-n>
-" normalモードに切り替えなくてもterminalモードのまま
-" 他のウィンドウに移動できるようにする
 tnoremap <C-w>h <C-\><C-N><C-w>h
 tnoremap <C-w>j <C-\><C-N><C-w>j
 tnoremap <C-w>k <C-\><C-N><C-w>k
 tnoremap <C-w>l <C-\><C-N><C-w>l
-" C-zでバックグランドにする
+" C-z : to background
 tnoremap <C-z> <C-\><C-N><C-z>
 tnoremap <C-f> <C-\><C-N>:Denite -mode=normal file_mru<cr><esc>
 tnoremap <C-b> <C-\><C-N>:Denite -mode=normal buffer<cr><esc>
@@ -133,7 +129,7 @@ nnoremap <silent> ,tc :call neoterm#kill()<cr>
 " Git commands
 command! -nargs=+ Tg :T git <args>
 
-" Shift + 矢印でウィンドウサイズを変更
+" change the window size
 nnoremap <S-Left>  <C-w>><CR>
 nnoremap <S-Right> <C-w><<CR>
 nnoremap <S-Up>    <C-w>-<CR>
@@ -143,7 +139,7 @@ nnoremap <S-Down>  <C-w>+<CR>
 nnoremap <C-s> :Gtags
 
 " jedi-vim
-" let g:jedi#completions_command = "<Tab>"  " 補完キー
+" let g:jedi#completions_command = '<Tab>'
 " let g:jedi#popup_select_first = 0
 " let g:jedi#popup_on_dot = 0
 
